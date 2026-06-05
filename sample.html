@@ -1,47 +1,92 @@
-<!DOCTYPE html>
+<!DOCTYOPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>My Bio</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      background: linear-gradient(-45deg, #f4f4f4, #e3f2fd, #f8f9fa, #e8f5e9);
+      background-size: 400% 400%;
       margin: 0;
-      padding: 0;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      animation: bgMove 10s ease infinite;
     }
 
+    /* Background animation */
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Card */
     .card {
       background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      max-width: 400px;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      max-width: 420px;
       text-align: center;
+
+      /* animation */
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hover effect */
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      transition: 0.4s ease;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     }
 
     h1 {
       margin-bottom: 10px;
-      color: #333;
+      color: #222;
+      animation: fadeIn 1.2s ease;
     }
 
     p {
-      color: #666;
-      line-height: 1.5;
+      color: #555;
+      line-height: 1.6;
+      animation: fadeIn 1.5s ease;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Tag with glow animation */
     .tag {
       display: inline-block;
-      margin-top: 10px;
-      padding: 5px 10px;
+      margin-top: 15px;
+      padding: 6px 14px;
       background: #007bff;
       color: white;
       border-radius: 20px;
       font-size: 12px;
+      animation: pulse 2s infinite;
+      box-shadow: 0 0 10px rgba(0,123,255,0.6);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px rgba(0,123,255,0.4); }
+      50% { box-shadow: 0 0 20px rgba(0,123,255,0.8); }
+      100% { box-shadow: 0 0 10px rgba(0,123,255,0.4); }
     }
   </style>
 </head>
@@ -52,7 +97,7 @@
     <h1>Gokul P</h1>
     <p>
       Aspiring DevOps Engineer passionate about Linux, Git, Docker, and cloud technologies.
-      I enjoy building efficient systems and learning new technologies every day.
+      I enjoy building scalable systems and learning modern DevOps tools.
     </p>
 
     <div class="tag">DevOps Learner</div>
